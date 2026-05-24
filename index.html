@@ -9,7 +9,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght=300;400;500;600;700&family=Inter:wght=300;400;500;600&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -38,7 +38,7 @@
             transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
         }
         .apple-card:hover {
-            border-color: #facc15; /* Subtle Yellow Accent Hover Boundary */
+            border-color: #facc15; 
             box-shadow: 0 8px 30px -2px rgba(250, 204, 21, 0.05);
         }
         .nav-btn {
@@ -46,7 +46,7 @@
         }
         .nav-btn.active {
             background-color: #222227;
-            color: #facc15; /* Active Yellow Highlight text */
+            color: #facc15; 
             border-left: 3px solid #facc15;
             font-weight: 500;
         }
@@ -116,13 +116,13 @@
             <div id="panel-aim" class="tab-panel apple-card rounded-2xl p-8 space-y-6">
                 <h2 class="text-3xl font-bold text-white tracking-tight border-b border-[#222227] pb-3">Aim</h2>
                 <p class="text-[#e5e5ea] leading-relaxed text-lg font-light">
-                    To evaluate and dynamically resolve steady-state radial heat transfer rates through customized single-layer cylindrical pipe walls using variable geometric boundaries and structural thermal constants.
+                    To evaluate and dynamically resolve the total steady-state radial heat lost ($H$) through single-layer cylindrical pipe walls over a specific time interval ($t$) using variable geometric boundaries and structural thermal constants.
                 </p>
                 <div class="space-y-3 pt-2">
                     <h3 class="text-sm font-semibold uppercase tracking-wider text-yellow-400">Core Mathematical Objectives</h3>
                     <ul class="space-y-3 text-[#c7c7cc] text-base list-none pl-0">
-                        <li class="flex items-start gap-3"><span class="text-yellow-400 font-bold">▪</span> Map log-linear temperature distribution equations across solid cylindrical cross-sections.</li>
-                        <li class="flex items-start gap-3"><span class="text-yellow-400 font-bold">▪</span> Verify real-time cross-sectional area variations as a function of the shifting radius vector.</li>
+                        <li class="flex items-start gap-3"><span class="text-yellow-400 font-bold">▪</span> Compute steady-state radial heat transfer rates ($Q$) through cylindrical profiles.</li>
+                        <li class="flex items-start gap-3"><span class="text-yellow-400 font-bold">▪</span> Integrate temporal duration transformations ($t$) across standard unit baselines to find total heat loss accumulation ($H = Q \times t$).</li>
                     </ul>
                 </div>
             </div>
@@ -130,21 +130,21 @@
             <div id="panel-theory" class="tab-panel hidden-panel apple-card rounded-2xl p-8 space-y-6">
                 <h2 class="text-3xl font-bold text-white tracking-tight border-b border-[#222227] pb-3">Theory</h2>
                 <p class="text-[#e5e5ea] font-light leading-relaxed">
-                    Fourier's Law governing continuous steady-state heat conduction through radial geometries indicates that the total conductive surface area expands outward as a function of radius:
-                </p>
-                <div class="bg-[#0b0b0c] p-3 rounded-xl border border-[#222227] text-center text-xl my-2 text-white block select-all">
-                    $$A = 2\pi rL$$
-                </div>
-                <p class="text-[#e5e5ea] font-light leading-relaxed">
-                    Integrating this dependency across standard boundaries yields the definitive equation for total radial heat energy flow rate ($Q$):
+                    Fourier's Law governing continuous steady-state heat conduction through radial geometries indicates that the total conductive surface area expands outward as a function of radius ($A = 2\pi rL$). Integrating this dependency across standard boundaries yields the heat flow rate ($Q$):
                 </p>
                 <div class="bg-[#0b0b0c] border border-[#222227] p-6 rounded-xl font-mono text-center text-white text-2xl tracking-wide my-4 shadow-inner">
                     $$Q = \frac{2 \pi k L (T_1 - T_2)}{\ln\left(\frac{r_2}{r_1}\right)}$$
                 </div>
+                <p class="text-[#e5e5ea] font-light leading-relaxed">
+                    To calculate the <strong>Total Heat Lost ($H$)</strong> over a designated operational time window ($t$), the steady-state continuous rate is scaled directly by the temporal quantity normalized to seconds:
+                </p>
+                <div class="bg-[#0b0b0c] border border-[#222227] p-6 rounded-xl font-mono text-center text-white text-2xl tracking-wide my-4 shadow-inner">
+                    $$H = Q \times t_{\text{seconds}}$$
+                </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm font-mono text-[#aeaeb2] pt-2">
+                    <div class="bg-[#222227]/40 p-3.5 rounded-xl border border-[#222227]"><span class="text-yellow-400 font-semibold">Q</span> = Heat flow rate calculation result (cal/sec)</div>
+                    <div class="bg-[#222227]/40 p-3.5 rounded-xl border border-[#222227]"><span class="text-yellow-400 font-semibold">t</span> = Temporal tracking constraints (Sec/Min/Hrs)</div>
                     <div class="bg-[#222227]/40 p-3.5 rounded-xl border border-[#222227]"><span class="text-yellow-400 font-semibold">k</span> = Thermal conductivity coefficient (cal/cm·s·°C)</div>
-                    <div class="bg-[#222227]/40 p-3.5 rounded-xl border border-[#222227]"><span class="text-yellow-400 font-semibold">L</span> = Axial length of the cylinder geometry (cm)</div>
-                    <div class="bg-[#222227]/40 p-3.5 rounded-xl border border-[#222227]"><span class="text-yellow-400 font-semibold">r₁, r₂</span> = Inner and outer boundary radius lines (cm)</div>
                     <div class="bg-[#222227]/40 p-3.5 rounded-xl border border-[#222227]"><span class="text-yellow-400 font-semibold">T₁ - T₂</span> = Direct operational temperature delta (°C)</div>
                 </div>
             </div>
@@ -191,9 +191,21 @@
                         <label class="block text-sm font-medium text-[#aeaeb2] uppercase tracking-wider">Length Parameter ($L$ in cm)</label>
                         <input type="number" id="sim-L" value="100" step="any" class="w-full bg-[#0b0b0c] border border-[#222227] focus:border-yellow-400 rounded-xl px-4 py-3 text-white text-base focus:outline-none transition-colors">
                     </div>
-                    <div class="space-y-2 md:col-span-2">
+                    <div class="space-y-2">
                         <label class="block text-sm font-medium text-[#aeaeb2] uppercase tracking-wider">Temperature Delta ($T_1 - T_2$ in °C)</label>
                         <input type="number" id="sim-dT" value="260" step="any" class="w-full bg-[#0b0b0c] border border-[#222227] focus:border-yellow-400 rounded-xl px-4 py-3 text-white text-base focus:outline-none transition-colors">
+                    </div>
+                    
+                    <div class="space-y-2">
+                        <label class="block text-sm font-medium text-[#aeaeb2] uppercase tracking-wider">Time Window Duration ($t$)</label>
+                        <div class="flex gap-2">
+                            <input type="number" id="sim-time-val" value="10" step="any" class="w-2/3 bg-[#0b0b0c] border border-[#222227] focus:border-yellow-400 rounded-xl px-4 py-3 text-white text-base focus:outline-none transition-colors">
+                            <select id="sim-time-unit" class="w-1/3 bg-[#0b0b0c] border border-[#222227] focus:border-yellow-400 rounded-xl px-2 py-3 text-white text-base focus:outline-none transition-colors cursor-pointer">
+                                <option value="seconds">Seconds</option>
+                                <option value="minutes">Minutes</option>
+                                <option value="hours">Hours</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
 
@@ -201,9 +213,9 @@
 
                 <div class="space-y-4">
                     <div class="space-y-2">
-                        <label class="block text-base font-semibold text-white">Your Computed Heat Transfer Output Rate ($Q$ in cal/sec)</label>
+                        <label class="block text-base font-semibold text-white">Your Computed Total Heat Lost Guess ($H$ in total calories)</label>
                         <div class="flex flex-col sm:flex-row gap-3">
-                            <input type="number" id="sim-user-guess" step="any" placeholder="Enter calculated cal/sec value..." class="flex-1 bg-[#0b0b0c] border border-[#222227] focus:border-yellow-400 rounded-xl px-4 py-3 text-white text-base focus:outline-none transition-colors">
+                            <input type="number" id="sim-user-guess" step="any" placeholder="Enter calculated total calories..." class="flex-1 bg-[#0b0b0c] border border-[#222227] focus:border-yellow-400 rounded-xl px-4 py-3 text-white text-base focus:outline-none transition-colors">
                             <button onclick="verifySimulationAnswer()" class="bg-yellow-400 text-black hover:bg-yellow-500 font-semibold text-base px-8 py-3 rounded-xl transition-all shadow-md">Verify Value</button>
                         </div>
                     </div>
@@ -310,7 +322,6 @@
     </footer>
 
     <script>
-        // Tab Navigation Controller Loop
         function switchTab(tabId) {
             document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.add('hidden-panel'));
             document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
@@ -319,18 +330,15 @@
             document.getElementById(`btn-${tabId}`).classList.add('active');
             
             if(tabId === 'simulation') {
-                // Initialize canvas sizes smoothly upon opening panel mapping viewport bounds
                 setTimeout(updateSimulationCanvas, 50);
             }
         }
 
-        // Search Engine Routing Logic for Interactive Reference Links
         function searchReference(queryString) {
             const URL = `https://www.google.com/search?q=${encodeURIComponent(queryString)}`;
             window.open(URL, '_blank');
         }
 
-        // Live Dynamic Canvas Graphics Engine
         function updateSimulationCanvas() {
             const canvas = document.getElementById("simCanvas");
             if (!canvas) return;
@@ -342,21 +350,17 @@
             if (r1 <= 0) r1 = 1;
             if (r2 <= r1) r2 = r1 + 1;
 
-            // Clear display matrix frames
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
             const centerX = canvas.width / 2;
             const centerY = canvas.height / 2;
             
-            // Normalize sizing bounds scaling coefficients dynamically to secure fit lines
             const baseScaleFactor = 120 / r2; 
             const drawRadius1 = r1 * baseScaleFactor;
             const drawRadius2 = r2 * baseScaleFactor;
             
-            // Draw Thermal Profile Conduction Area Mesh Grid Gradient Rings
             let thermalGradient = ctx.createRadialGradient(centerX, centerY, drawRadius1, centerX, centerY, drawRadius2);
-            thermalGradient.addColorStop(0, 'rgba(239, 68, 68, 0.45)');  // Core Heat Hot Boundary (Red)
-            thermalGradient.addColorStop(1, 'rgba(59, 130, 246, 0.1)');  // Outer Containment Shell Line (Blue)
+            thermalGradient.addColorStop(0, 'rgba(239, 68, 68, 0.45)');  
+            thermalGradient.addColorStop(1, 'rgba(59, 130, 246, 0.1)');  
             
             ctx.beginPath();
             ctx.arc(centerX, centerY, drawRadius2, 0, 2 * Math.PI);
@@ -364,21 +368,18 @@
             ctx.fillStyle = thermalGradient;
             ctx.fill();
 
-            // Inner Radius Edge Ring Vector
             ctx.beginPath();
             ctx.arc(centerX, centerY, drawRadius1, 0, 2 * Math.PI);
             ctx.strokeStyle = '#ef4444';
             ctx.lineWidth = 2.5;
             ctx.stroke();
 
-            // Outer Radius Edge Ring Vector
             ctx.beginPath();
             ctx.arc(centerX, centerY, drawRadius2, 0, 2 * Math.PI);
             ctx.strokeStyle = '#3b82f6';
             ctx.lineWidth = 2.5;
             ctx.stroke();
             
-            // Crosshair Core Center Vectors Map Center Point
             ctx.beginPath();
             ctx.moveTo(centerX - 6, centerY); ctx.lineTo(centerX + 6, centerY);
             ctx.moveTo(centerX, centerY - 6); ctx.lineTo(centerX, centerY + 6);
@@ -387,7 +388,6 @@
             ctx.stroke();
         }
 
-        // Expanded 10-Question Datasets
         const pretestData = [
             { q: "What profile pattern characterizes steady-state radial heat transfer coordinates?", options: ["Linear scale decline", "Logarithmic variation", "Parabolic distribution shift", "Exponential decay parameters"], correct: 1 },
             { q: "As thermal conduction vector tracking moves outward through a pipe wall, local surface area...", options: ["Expands linearly", "Contracts parabolically", "Remains geometrically uniform", "Drops exponentially"], correct: 0 },
@@ -414,7 +414,6 @@
             { q: "The mathematical curve showing temperature distribution across a radial pipe wall is:", options: ["A straight line", "A log curve", "A hyperbola", "A parabola"], correct: 1 }
         ];
 
-        // Core Question Injection Engine
         function generateTestMarkup(targetId, dataset) {
             const container = document.getElementById(`${targetId}-questions`);
             container.innerHTML = dataset.map((item, qIdx) => `
@@ -432,7 +431,6 @@
             `).join('');
         }
 
-        // Test Evaluation Engine
         function evaluateTest(event, type) {
             event.preventDefault();
             const dataset = type === 'pretest' ? pretestData : posttestData;
@@ -462,11 +460,10 @@
                 critique.innerText = "Performance metrics indicate key structural calculation errors. Re-verify Fourier parameters.";
                 critique.className = "text-sm text-rose-400 font-medium";
             }
-            
             scorecard.scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Interactive Simulation Calculation Backend Engine
+        // Updated Simulation Computational Target Analytics Backend Loop
         let simAttemptCount = 0;
 
         function getSimulationTarget() {
@@ -475,10 +472,23 @@
             const k = parseFloat(document.getElementById("sim-k").value);
             const L = parseFloat(document.getElementById("sim-L").value);
             const dT = parseFloat(document.getElementById("sim-dT").value);
+            
+            const timeVal = parseFloat(document.getElementById("sim-time-val").value) || 0;
+            const timeUnit = document.getElementById("sim-time-unit").value;
 
-            // Analytical Math Solver Integration Loop Engine
-            const Q_target = (2 * Math.PI * k * L * dT) / Math.log(r2 / r1);
-            return Q_target;
+            // Resolve time directly into base scalar seconds bounds
+            let secondsMultiplier = 1;
+            if (timeUnit === 'minutes') secondsMultiplier = 60;
+            if (timeUnit === 'hours') secondsMultiplier = 3600;
+            
+            const totalSeconds = timeVal * secondsMultiplier;
+
+            // Base rate equation resolution (cal/sec)
+            const Q_rate = (2 * Math.PI * k * L * dT) / Math.log(r2 / r1);
+            
+            // Total Accumulation Heat Lost calculation mapping total window sequence
+            const H_total_lost = Q_rate * totalSeconds;
+            return H_total_lost;
         }
 
         function verifySimulationAnswer() {
@@ -494,24 +504,26 @@
             simAttemptCount++;
             document.getElementById("sim-attempt-badge").innerText = `${simAttemptCount} / 4`;
 
-            // Percentage Variance Check Loop Tolerance (Allow ±5% computational margins)
             const acceptableVariance = targetAnswer * 0.05;
             const isCorrect = Math.abs(userGuess - targetAnswer) <= acceptableVariance;
 
             if (isCorrect) {
                 hintBox.className = "p-5 rounded-xl text-base bg-yellow-400/5 border-yellow-400/30 text-yellow-400 font-light";
-                hintBox.innerHTML = `🎉 <strong>Target Verified Successfully!</strong> Your calculation steps align perfectly with the backend math matrix solver. Your numerical value is spot on.`;
+                hintBox.innerHTML = `🎉 <strong>Total Heat Loss Verified!</strong> Your calculation matches the target matrix limits perfectly. Exceptional unit translation tracking.`;
                 hintBox.classList.remove("hidden");
                 document.getElementById("sim-reveal-btn").classList.add("hidden");
             } else {
                 hintBox.className = "p-5 rounded-xl text-base bg-[#0b0b0c] border-[#222227] text-[#e5e5ea] font-light";
                 
+                const currentUnit = document.getElementById("sim-time-unit").value;
+                const currentVal = document.getElementById("sim-time-val").value;
+
                 if (simAttemptCount === 1) {
-                    hintBox.innerHTML = `⚠️ <strong>Incorrect (Attempt 1).</strong> <br><em>Hint 1:</em> The calculation requires Fourier's radial cylinder formula: <strong>Q = [ 2 * π * k * L * (ΔT) ] / ln(r₂ / r₁)</strong>.`;
+                    hintBox.innerHTML = `⚠️ <strong>Incorrect (Attempt 1).</strong> <br><em>Hint 1:</em> First find the conduction rate: <strong>Q = [ 2 * π * k * L * (ΔT) ] / ln(r₂ / r₁)</strong>. Then multiply that rate ($Q$) by the complete duration parameter normalized into seconds.`;
                 } else if (simAttemptCount === 2) {
-                    hintBox.innerHTML = `⚠️ <strong>Incorrect (Attempt 2).</strong> <br><em>Hint 2:</em> Double-check the log scaling. Evaluate the fraction ratio of <strong>r₂ / r₁</strong> (${(parseFloat(document.getElementById("sim-r2").value) / parseFloat(document.getElementById("sim-r1").value)).toFixed(4)}) and find its natural log ($\ln$) scalar denominator value before dividing.`;
+                    hintBox.innerHTML = `⚠️ <strong>Incorrect (Attempt 2).</strong> <br><em>Hint 2:</em> Unit conversion check: You entered <strong>${currentVal} ${currentUnit}</strong>. Make sure you converted that completely into pure seconds before multiplying with your $Q$ rate.`;
                 } else if (simAttemptCount === 3) {
-                    hintBox.innerHTML = `⚠️ <strong>Incorrect (Attempt 3).</strong> <br><em>Hint 3:</em> Your current input configuration yields a combined core numerator product value of: <strong>${(2 * Math.PI * parseFloat(document.getElementById("sim-k").value) * parseFloat(document.getElementById("sim-L").value) * parseFloat(document.getElementById("sim-dT").value)).toFixed(4)}</strong>. Divide this directly by your natural log result.`;
+                    hintBox.innerHTML = `⚠️ <strong>Incorrect (Attempt 3).</strong> <br><em>Hint 3:</em> Your system configuration yields a base conduction rate $Q$ of roughly <strong>${((2 * Math.PI * parseFloat(document.getElementById("sim-k").value) * parseFloat(document.getElementById("sim-L").value) * parseFloat(document.getElementById("sim-dT").value)) / Math.log(parseFloat(document.getElementById("sim-r2").value) / parseFloat(document.getElementById("sim-r1").value))).toFixed(4)} cal/sec</strong>. Multiply this directly by your total seconds metric.`;
                 } else {
                     hintBox.className = "p-5 rounded-xl text-base bg-rose-950/20 border-rose-900/40 text-rose-300 font-light";
                     hintBox.innerHTML = `❌ <strong>Attempt 4 Failed.</strong> Computational checks saturated out. Activate the override loop switch option below to trace structural steps.`;
@@ -523,15 +535,28 @@
 
         function revealSimulationAnswer() {
             const targetVal = getSimulationTarget();
-            const hintBox = document.getElementById("sim-hint-box");
+            const r1 = parseFloat(document.getElementById("sim-r1").value);
+            const r2 = parseFloat(document.getElementById("sim-r2").value);
+            const k = parseFloat(document.getElementById("sim-k").value);
+            const L = parseFloat(document.getElementById("sim-L").value);
+            const dT = parseFloat(document.getElementById("sim-dT").value);
+            const timeVal = parseFloat(document.getElementById("sim-time-val").value) || 0;
+            const timeUnit = document.getElementById("sim-time-unit").value;
+
+            let mult = 1;
+            if (timeUnit === 'minutes') mult = 60;
+            if (timeUnit === 'hours') mult = 3600;
+
+            const Q_rate = (2 * Math.PI * k * L * dT) / Math.log(r2 / r1);
+
+            hintBox = document.getElementById("sim-hint-box");
             hintBox.className = "p-5 rounded-xl text-base bg-[#0b0b0c] border border-yellow-400/40 text-white font-mono leading-relaxed shadow-lg shadow-yellow-400/5";
             hintBox.innerHTML = `🏁 <strong>System Mathematical Matrix Output Verification:</strong><br>
-            • Numerator Factor (2πkLΔT) = ${(2 * Math.PI * parseFloat(document.getElementById("sim-k").value) * parseFloat(document.getElementById("sim-L").value) * parseFloat(document.getElementById("sim-dT").value)).toFixed(4)}<br>
-            • Denominator Log ln(r₂/r₁) = ${Math.log(parseFloat(document.getElementById("sim-r2").value) / parseFloat(document.getElementById("sim-r1").value)).toFixed(4)}<br>
-            • Absolute Solved Energy Target (Q) = <span class="text-yellow-400 font-bold">${targetVal.toFixed(4)} cal/sec</span>`;
+            • Solved Conduction Rate (Q) = ${Q_rate.toFixed(4)} cal/sec<br>
+            • Duration Multiplier (${timeVal} ${timeUnit}) = ${timeVal * mult} seconds<br>
+            • Total Heat Energy Loss (H = Q × t) = <span class="text-yellow-400 font-bold">${targetVal.toFixed(4)} absolute calories</span>`;
         }
 
-        // Execution Initializer Loop Onload Pipeline
         window.onload = function() {
             generateTestMarkup('pretest', pretestData);
             generateTestMarkup('posttest', posttestData);
